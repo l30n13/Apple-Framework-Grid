@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "sf-symbols.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
