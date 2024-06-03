@@ -11,21 +11,11 @@ struct FrameworkDetailView: View {
     let frameWork: Framework
     
     @Binding var isShowingDetailView: Bool
+    @State private var isShowingSafariView: Bool = false
     
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Button {
-                    isShowingDetailView = false
-                } label: {
-                    Image(systemName: "xmark")
-                        .foregroundStyle(Color(.label))
-                        .imageScale(.large)
-                        .frame(width: 45, height: 45)
-                }
-                .padding()
-            }
+            XDismissButton(isShowingDetailView: $isShowingDetailView)
             
             Spacer()
             FrameworkTitleView(frameWork: frameWork)
@@ -37,10 +27,13 @@ struct FrameworkDetailView: View {
             Spacer()
             
             Button {
-                
+                isShowingSafariView = true
             } label: {
                 AFButton(title: "Learn More")
             }
+        }
+        .sheet(isPresented: $isShowingSafariView) {
+            SafariView(url: URL(string: frameWork.urlString)!)
         }
     }
 }
