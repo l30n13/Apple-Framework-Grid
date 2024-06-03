@@ -17,6 +17,7 @@ struct FrameworkTitleView: View {
                 .frame(width: 90, height: 90)
             Text(frameWork.name)
                 .font(.title2)
+                .foregroundStyle(Color(.label))
                 .fontWeight(.semibold)
                 .scaledToFit()
                 .minimumScaleFactor(0.6)
@@ -26,5 +27,5 @@ struct FrameworkTitleView: View {
 }
 
 #Preview {
-    FrameworkTitleView(frameWork: MockData.sampleFramework)
+    FrameworkTitleView(frameWork: MockData.sampleFramework).preferredColorScheme(.dark)
 }
